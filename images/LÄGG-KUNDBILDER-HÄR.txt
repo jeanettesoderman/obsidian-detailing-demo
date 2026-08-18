@@ -1,0 +1,1 @@
+Lägg kundens egna bilbilder här och byt sökvägarna i config.js.
