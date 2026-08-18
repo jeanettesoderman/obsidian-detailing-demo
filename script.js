@@ -38,7 +38,7 @@ function renderServices() {
       <div class="service-content">
         <h3>${s.name}</h3>
         <p>${s.description}</p>
-        <a href="#boka">Boka behandling</a>
+        <a href="#boka">${window.OBSIDIAN_TR ? window.OBSIDIAN_TR("Boka behandling") : "Boka behandling"}</a>
       </div>
     </article>
   `).join("");
@@ -61,7 +61,7 @@ function renderPackages() {
   const grid = document.getElementById("packages-grid");
   grid.innerHTML = c.packages.map(p => `
     <article class="package-card ${p.featured ? "featured" : ""}">
-      ${p.featured ? '<span class="package-badge">MEST VALD</span>' : ""}
+      ${p.featured ? `<span class="package-badge">${window.OBSIDIAN_TR ? window.OBSIDIAN_TR("MEST VALD") : "MEST VALD"}</span>` : ""}
       <h3>${p.name}</h3>
       <p class="package-sub">${p.subtitle}</p>
       <strong class="package-price">${p.price}</strong>
@@ -93,7 +93,7 @@ form.addEventListener("submit", e => {
 
   e.preventDefault();
   document.getElementById("form-status").textContent =
-    "Demoformulär. Här kopplas kundens formulärtjänst eller bokningssystem in.";
+    (window.OBSIDIAN_TR ? window.OBSIDIAN_TR("Demoformulär. Här kopplas kundens formulärtjänst eller bokningssystem in.") : "Demoformulär. Här kopplas kundens formulärtjänst eller bokningssystem in.");
   form.reset();
 });
 
